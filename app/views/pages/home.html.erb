@@ -1,5 +1,5 @@
-<div data-controller="hello">
-  <div class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" data-action="click->hello#greet click->hello#toogle">
+<div data-controller="hello" data-hello-red-class="bg-red-500" data-hello-red-title-class="text-red-500" data-hello-number-value=4>
+  <div class="py-2 px-4 border border-blue-500 hover:border-transparent rounded" data-hello-target="btn" data-action="click->hello#toogle">
     Say Hello
   </div>
   <h1 data-hello-target="heading">This is the home page</h1>
@@ -8,4 +8,9 @@
     <input type="text" placeholder="dites nous bonjour" data-hello-target="input" data-action="input->hello#inputChange">
     <div data-hello-target="text"></div>
   </div>
+  <% 5.times do %>
+    <div class="card" data-action = 'click->hello#titleColor'>
+      <div class="card-title">Coucou</div>
+    </div>
+  <% end %>
 </div>

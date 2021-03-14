@@ -1,22 +1,29 @@
-import { Controller } from 'stimulus'; 
+import { Controller } from "stimulus"
+
 export default class extends Controller {
-  static targets = ["heading", "paraph", "input", "text"]
+
+  static targets = ['text', 'btn', 'title']
+  static values = { number: Number }
+  static classes = ['red', 'redTitle']
 
   connect() {
-    console.log("hello from StimulusJS")
-  }
-  greet() {
-    this.headingTarget.innerHTML = "Hello World"
-  }
-  toogle() {
-    if(this.paraphTarget.innerHTML === "Je suis un paragraph"){
-      this.paraphTarget.innerHTML = "Je ne suis plus un paragraph"
-    } else {
-      this.paraphTarget.innerHTML = "Je suis un paragraph"
-    }
+    this.numberValueChanged()
   }
 
-  inputChange() {
-    this.textTarget.innerHTML = this.inputTarget.value
+  greet() {
+    this.textTarget.innerHTML = 'Coucou'
+  }
+
+  toogle() {
+    this.btnTarget.classList.toggle(this.redClass)
+    this.numberValue++
+  }
+
+  numberValueChanged() {
+    this.textTarget.textContent = this.numberValue
+  }
+
+  titleColor(e) {
+    e.currentTarget.classList.toggle(this.redTitleClass)
   }
 }
